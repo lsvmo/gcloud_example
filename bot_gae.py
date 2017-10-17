@@ -4,7 +4,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.abspath('.'), 'venv/lib/site-packages'))
 
-import telegram
+import telegram.ext
 from flask import Flask, request
 
 app = Flask(__name__)
