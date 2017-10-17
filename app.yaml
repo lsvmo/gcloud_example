@@ -11,5 +11,5 @@ libraries:
   version: "2.5.2"
 - name: ssl
   version: latest
-- name: python-telegram-bot
+- name: telegram
   version: latest
