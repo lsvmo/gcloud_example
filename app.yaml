@@ -1,4 +1,4 @@
-runtime: botgamereg-hello
+runtime: python27
 api_version: 1
 threadsafe: yes
 
