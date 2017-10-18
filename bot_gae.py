@@ -24,8 +24,14 @@ def webhook_handler():
         # Telegram understands UTF-8, so encode text for unicode compatibility
         text = update.message.text.encode('utf-8')
 
+		markup = types.InlineKeyboardMarkup()
+		#First row - Month and Year
+		row=[]
+		row.append(types.InlineKeyboardButton(text,callback_data="ignore"))
+		markup.row(*row)
+		
         # repeat the same message back (echo)
-        bot.sendMessage(chat_id=chat_id, text=text)
+        bot.sendMessage(chat_id=chat_id, text="", , reply_markup=markup)
 
     return 'ok'
 
