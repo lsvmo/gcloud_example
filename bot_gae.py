@@ -31,7 +31,7 @@ def webhook_handler():
         markup.row(*row)
         
         # repeat the same message back (echo)
-        bot.sendMessage(chat_id=chat_id, text="", reply_markup=markup)
+        bot.sendMessage(chat_id=chat_id, text="Choose smth!", reply_markup=markup)
 
     return 'ok'
 
