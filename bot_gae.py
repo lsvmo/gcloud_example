@@ -5,6 +5,7 @@ import os
 sys.path.append(os.path.join(os.path.abspath('.'), 'lib'))
 
 import telegram
+from telebot import types
 from flask import Flask, request
 
 app = Flask(__name__)
