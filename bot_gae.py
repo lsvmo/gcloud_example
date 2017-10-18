@@ -19,7 +19,7 @@ def webhook_handler():
     if request.method == "POST":
         # retrieve the message in JSON and then transform it to Telegram object
         update = telegram.Update.de_json(request.get_json(force=True), bot)
-
+        
         chat_id = update.message.chat.id
 
         # Telegram understands UTF-8, so encode text for unicode compatibility
@@ -32,7 +32,7 @@ def webhook_handler():
         markup.row(*row)
         
         # repeat the same message back (echo)
-        bot.sendMessage(chat_id=chat_id, text="", , reply_markup=markup)
+        bot.sendMessage(chat_id=chat_id, text="", reply_markup=markup)
 
     return 'ok'
 
