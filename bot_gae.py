@@ -4,13 +4,13 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.abspath('.'), 'venv/lib/site-packages'))
 
-import telegram
+from flask.ext import telegram
 from flask import Flask, request
 
 app = Flask(__name__)
 
 global bot
-bot = telegram.Bot(token='291279465:AAGRvWtOS2VjhfIH_l-d5tn2EdXdTFZheo4', threaded=false)
+bot = telegram.Bot(token='291279465:AAGRvWtOS2VjhfIH_l-d5tn2EdXdTFZheo4')
 
 
 @app.route('/HOOK', methods=['POST'])
