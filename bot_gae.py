@@ -2,7 +2,7 @@
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.abspath('.'), 'venv/lib/site-packages'))
+sys.path.append(os.path.join(os.path.abspath('.'), 'lib'))
 
 import telegram
 from flask import Flask, request
