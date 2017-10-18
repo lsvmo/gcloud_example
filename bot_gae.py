@@ -5,7 +5,6 @@ import os
 sys.path.append(os.path.join(os.path.abspath('.'), 'lib'))
 
 import telegram
-from telebot import types
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -25,10 +24,10 @@ def webhook_handler():
         # Telegram understands UTF-8, so encode text for unicode compatibility
         text = update.message.text.encode('utf-8')
         
-        markup = types.InlineKeyboardMarkup()
+        markup = telegram.InlineKeyboardMarkup()
         #First row - Month and Year
         row=[]
-        row.append(types.InlineKeyboardButton(text,callback_data="ignore"))
+        row.append(telegram.InlineKeyboardButton(text,callback_data="ignore"))
         markup.row(*row)
         
         # repeat the same message back (echo)
