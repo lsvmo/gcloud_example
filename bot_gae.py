@@ -30,7 +30,7 @@ def webhook_handler():
 		markup = telegram.InlineKeyboardMarkup(row)
 		
 		# repeat the same message back (echo)
-		bot.sendMessage(chat_id=chat_id, text=msg_text, reply_markup=markup)
+		bot.sendMessage(chat_id=chat_id, text=msg_text)
 	return 'ok'
 
 
