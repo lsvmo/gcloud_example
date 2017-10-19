@@ -32,7 +32,7 @@ def webhook_handler():
 		
 		# repeat the same message back (echo)
 		bot.sendMessage(chat_id=chat_id, text="Choose smth!", reply_markup=markup)
-    return 'ok'
+	return 'ok'
 
 
 @app.route('/set_webhook', methods=['GET', 'POST'])
