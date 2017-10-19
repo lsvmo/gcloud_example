@@ -28,7 +28,6 @@ def webhook_handler():
 		row=[]
 		row.append(telegram.InlineKeyboardButton(text,callback_data="ignore"))
 		markup = telegram.InlineKeyboardMarkup(row)
-		markup.row(*row)
 		
 		# repeat the same message back (echo)
 		bot.sendMessage(chat_id=chat_id, text="Choose smth!", reply_markup=markup)
