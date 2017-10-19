@@ -26,7 +26,7 @@ def webhook_handler():
 		
 		#First row - Month and Year
 		row=[]
-		row.append(telegram.InlineKeyboardButton(text,callback_data="ignore"))
+		row.append(telegram.InlineKeyboardButton(msg_text,callback_data="ignore"))
 		markup = telegram.InlineKeyboardMarkup(row)
 		
 		# repeat the same message back (echo)
