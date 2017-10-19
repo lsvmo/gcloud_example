@@ -27,7 +27,7 @@ def webhook_handler():
 		#First row - Month and Year
 		row=[[telegram.KeyboardButton(msg_text)]]
 		#row.append(telegram.InlineKeyboardButton(msg_text,callback_data="ignore"))
-		markup = telegram.ReplyKeyboardMarkup(row, one_time_keyboard=True)
+		markup = telegram.ReplyKeyboardMarkup(row, resize_keyboard=True, one_time_keyboard=True)
 		
 		# repeat the same message back (echo)
 		bot.sendMessage(chat_id=chat_id, text=msg_text, reply_markup=markup)
