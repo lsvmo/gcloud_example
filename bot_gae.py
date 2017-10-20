@@ -15,7 +15,7 @@ from peewee import *
 # --------- global variables ---------------------
 
 start_button_list = [
-    [KeyboardButton("Регистарция в боте", callback_data="Registration")]
+    [KeyboardButton(u"Регистарция в боте", callback_data="Registration")]
 ]
 
 app = Flask(__name__)
@@ -48,11 +48,11 @@ def webhook_handler():
 
 		if update.message.text == "/start":
 			r_markup = ReplyKeyboardMarkup(build_menu(button_list, n_cols=1),  resize_keyboard=True)
-			reply_text = "Пройдите, пожалуйста, регистрацию, нажав кнопку регистрации"
+			reply_text = u"Пройдите, пожалуйста, регистрацию, нажав кнопку регистрации"
 
 		if update.message.text == "Registration":
 			r_markup = None
-			reply_text = "Регистрация успешно пройдена"
+			reply_text = u"Регистрация успешно пройдена"
 
 		# repeat the same message back (echo)
 		if reply_markup == None:
