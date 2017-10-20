@@ -60,7 +60,7 @@ def webhook_handler():
 		# repeat the same message back (echo)
 		if reply_markup == None:
 			bot.sendMessage(chat_id=chat_id, text=reply_text)
-		else
+		else:
 			bot.sendMessage(chat_id=chat_id, text=reply_text, reply_markup=r_markup)
 
 
