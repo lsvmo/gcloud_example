@@ -50,13 +50,10 @@ def webhook_handler():
 		r_markup = None
 
 		if update.message.text == "/start":
-			bot.sendMessage(chat_id=chat_id, text=u"111")
-			r_markup = telegram.ReplyKeyboardMarkup(build_menu(start_button_list, n_cols=1),  resize_keyboard=True)
+			r_markup = telegram.ReplyKeyboardMarkup(start_button_list,  resize_keyboard=True)
 			reply_text = u"Please, go on trough registration in bot"
 
 		if update.message.text == "Registration":
-			bot.sendMessage(chat_id=chat_id, text=u"222")
-
 			r_markup = None
 			reply_text = u"Registration completed"
 
