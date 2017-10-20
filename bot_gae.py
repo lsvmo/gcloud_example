@@ -14,6 +14,10 @@ from peewee import *
 
 # --------- global variables ---------------------
 
+start_button_list = [
+    [KeyboardButton("Регистарция в боте", callback_data="Registration")]
+]
+
 app = Flask(__name__)
 
 global bot
@@ -21,24 +25,42 @@ bot = telegram.Bot(token='291279465:AAGRvWtOS2VjhfIH_l-d5tn2EdXdTFZheo4')
 
 # --------- functions ----------------------------
 
+# universal function building menu with buttons
+def build_menu(buttons,
+               n_cols,
+               header_buttons=None,
+               footer_buttons=None):
+    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
+    if header_buttons:
+        menu.insert(0, header_buttons)
+    if footer_buttons:
+        menu.append(footer_buttons)
+    return menu
+
 @app.route('/HOOK', methods=['POST'])
 def webhook_handler():
+	#web hooks use only this type of request
 	if request.method == "POST":
 		# retrieve the message in JSON and then transform it to Telegram object
 		update = telegram.Update.de_json(request.get_json(force=True), bot)
 
 		chat_id = update.message.chat.id
 
-		# Telegram understands UTF-8, so encode text for unicode compatibility
-		msg_text = update.message.text.encode('utf-8')
+		if update.message.text == "/start":
+			r_markup = ReplyKeyboardMarkup(build_menu(button_list, n_cols=1),  resize_keyboard=True)
+			reply_text = "Пройдите, пожалуйста, регистрацию, нажав кнопку регистрации"
 
-		#First row - Month and Year
-		row=[[telegram.KeyboardButton(msg_text)]]
-		#row.append(telegram.InlineKeyboardButton(msg_text,callback_data="ignore"))
-		markup = telegram.ReplyKeyboardMarkup(row, resize_keyboard=True, one_time_keyboard=True)
+		if update.message.text == "Registration":
+			r_markup = None
+			reply_text = "Регистрация успешно пройдена"
 
 		# repeat the same message back (echo)
-		bot.sendMessage(chat_id=chat_id, text=msg_text, reply_markup=markup)
+		if reply_markup == None:
+			bot.sendMessage(chat_id=chat_id, text=reply_text)
+		else
+			bot.sendMessage(chat_id=chat_id, text=reply_text, reply_markup=r_markup)
+
+
 	return 'ok'
 
 
