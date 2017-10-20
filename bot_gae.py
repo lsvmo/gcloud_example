@@ -15,7 +15,7 @@ from peewee import *
 # --------- global variables ---------------------
 
 start_button_list = [
-    [KeyboardButton(u"Register in bot", callback_data="Registration")]
+    [telegram.KeyboardButton(u"Register in bot", callback_data="Registration")]
 ]
 
 app = Flask(__name__)
@@ -50,7 +50,7 @@ def webhook_handler():
 		r_markup = None
 
 		if update.message.text == "/start":
-			r_markup = ReplyKeyboardMarkup(build_menu(button_list, n_cols=1),  resize_keyboard=True)
+			r_markup = telegram.ReplyKeyboardMarkup(build_menu(button_list, n_cols=1),  resize_keyboard=True)
 			reply_text = u"Please, go on trough registration in bot"
 
 		if update.message.text == "Registration":
