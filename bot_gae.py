@@ -58,7 +58,7 @@ def webhook_handler():
 			reply_text = u"Registration completed"
 
 		# repeat the same message back (echo)
-		if r_markup == None:
+		if r_markup is None:
 			bot.sendMessage(chat_id=chat_id, text=reply_text)
 		else:
 			bot.sendMessage(chat_id=chat_id, text=reply_text, reply_markup=r_markup)
