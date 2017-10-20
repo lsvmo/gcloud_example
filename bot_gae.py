@@ -50,7 +50,7 @@ def webhook_handler():
 		r_markup = None
 
 		if update.message.text == "/start":
-			r_markup = telegram.ReplyKeyboardMarkup(build_menu(button_list, n_cols=1),  resize_keyboard=True)
+			r_markup = telegram.ReplyKeyboardMarkup(build_menu(start_button_list, n_cols=1),  resize_keyboard=True)
 			reply_text = u"Please, go on trough registration in bot"
 
 		if update.message.text == "Registration":
