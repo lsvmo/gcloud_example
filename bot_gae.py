@@ -15,7 +15,7 @@ from peewee import *
 # --------- global variables ---------------------
 
 start_button_list = [
-    [telegram.KeyboardButton(u"Register in bot")]
+    [telegram.KeyboardButton(u"Регистрация")]
 ]
 
 app = Flask(__name__)
