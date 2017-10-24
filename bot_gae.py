@@ -5,10 +5,11 @@ import sys
 import os
 
 sys.path.append(os.path.join(os.path.abspath('.'), 'lib'))
+#sys.path.append(os.path.join('E:\Work\Instrum\Python2_7\Lib\site-packages'))
+#sys.path.append(os.path.join('E:\Work\Instrum\Python2_7\Lib\site-packages\python_telegram_bot-8.1.1-py2.7.egg'))
 
 import telegram
 from flask import Flask, request
-from peewee import *
 
 # --------- global constant section --------------
 
@@ -40,7 +41,7 @@ def build_menu(buttons,
     return menu
 
 
-@app.route('/HOOK', methods=['POST'])
+@app.route('/HOOK', methods=['GET','POST'])
 def webhook_handler():
     # web hooks use only this type of request
     if request.method == "POST":
@@ -68,7 +69,8 @@ def webhook_handler():
 
 @app.route('/set_webhook', methods=['GET', 'POST'])
 def set_webhook():
-    s = bot.setWebhook('https://botgamereg-hello.appspot.com/HOOK')
+    #s = bot.setWebhook('https://botgamereg-hello.appspot.com/HOOK')
+    s = bot.setWebhook('http://127.0.0.1:8080/HOOK')
     if s:
         return "webhook setup ok"
     else:
