@@ -69,8 +69,8 @@ def webhook_handler():
 
 @app.route('/set_webhook', methods=['GET', 'POST'])
 def set_webhook():
-    #s = bot.setWebhook('https://botgamereg-hello.appspot.com/HOOK')
-    s = bot.setWebhook('http://127.0.0.1:8080/HOOK')
+    s = bot.setWebhook('https://botgamereg-hello.appspot.com/HOOK')
+    #s = bot.setWebhook('http://127.0.0.1:8080/HOOK')
     if s:
         return "webhook setup ok"
     else:
